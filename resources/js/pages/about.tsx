@@ -5,7 +5,20 @@ import { contact } from '@/routes';
 export default function About() {
     return (
         <PublicShell>
-            <Head title="About Us | Eazy's Cars" />
+            <Head>
+                <title>About Us | Global Car Sourcing | Eazy's Cars</title>
+                <meta
+                    name="description"
+                    content="Learn about Eazy's Cars, a Belgium-based vehicle sourcing specialist focused on helping customers and dealers find vehicles from international markets."
+                />
+                <link rel="canonical" href="https://eazyscars.be/about" />
+                <meta property="og:title" content="About Us | Eazy's Cars" />
+                <meta
+                    property="og:description"
+                    content="A sourcing partner for customers and dealers. Global vehicle sourcing, transparent fees, and reliable international import/export."
+                />
+                <meta property="og:url" content="https://eazyscars.be/about" />
+            </Head>
 
             {/* Page Hero */}
             <section className="bg-gradient-to-br from-[#0b1119] to-[#151d28] py-[110px] pb-[70px] text-white">

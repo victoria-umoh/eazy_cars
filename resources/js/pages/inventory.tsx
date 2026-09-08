@@ -6,7 +6,20 @@ import { vehicles } from '@/data/vehicles';
 export default function Inventory() {
     return (
         <PublicShell>
-            <Head title="Cars for Sale | Eazy's Cars" />
+            <Head>
+                <title>Cars for Sale | Featured Vehicles | Eazy's Cars</title>
+                <meta
+                    name="description"
+                    content="Browse premium and curated cars for sale at Eazy's Cars. Sourced on request across Europe, USA, Canada, and Japan including Mercedes-Benz, Toyota, Lexus and more."
+                />
+                <link rel="canonical" href="https://eazyscars.be/cars-for-sale" />
+                <meta property="og:title" content="Cars for Sale | Eazy's Cars" />
+                <meta
+                    property="og:description"
+                    content="Browse vehicles available through Eazy's Cars or request a vehicle to be sourced specifically for you."
+                />
+                <meta property="og:url" content="https://eazyscars.be/cars-for-sale" />
+            </Head>
 
             {/* Page Hero Section */}
             <section className="bg-gradient-to-br from-[#0b1119] to-[#151d28] py-[110px] pb-[70px] text-white">

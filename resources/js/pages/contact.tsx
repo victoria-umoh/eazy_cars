@@ -33,7 +33,23 @@ export default function Contact() {
 
     return (
         <PublicShell>
-            <Head title="Car Sourcing & Contact | Eazy's Cars" />
+            <Head>
+                <title>Car Sourcing & Vehicle Request | Eazy's Cars</title>
+                <meta
+                    name="description"
+                    content="Request a car sourced specifically for you. Eazy's Cars sources quality vehicles worldwide across Belgium, Europe, USA, Canada, and Japan."
+                />
+                <link rel="canonical" href="https://eazyscars.be/find-your-car" />
+                <meta
+                    property="og:title"
+                    content="Car Sourcing & Vehicle Request | Eazy's Cars"
+                />
+                <meta
+                    property="og:description"
+                    content="Tell us your requirements and we will find the right car for you with transparent pricing and international shipping."
+                />
+                <meta property="og:url" content="https://eazyscars.be/find-your-car" />
+            </Head>
 
             {/* Page Hero */}
             <section className="bg-gradient-to-br from-[#0b1119] to-[#151d28] py-[110px] pb-[70px] text-white">

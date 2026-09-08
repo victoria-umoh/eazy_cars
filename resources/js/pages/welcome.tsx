@@ -8,7 +8,23 @@ import { contact, inventory } from '@/routes';
 export default function Welcome() {
     return (
         <PublicShell theme="dark">
-            <Head title="Curated cars, made effortless" />
+            <Head>
+                <title>Eazy's Cars | Global Vehicle Sourcing & Curated Cars</title>
+                <meta
+                    name="description"
+                    content="Eazy's Cars - A considered collection of luxury, performance, and modern classic cars. Sourced worldwide across Belgium, Europe, USA, Canada, and Japan."
+                />
+                <link rel="canonical" href="https://eazyscars.be/" />
+                <meta
+                    property="og:title"
+                    content="Eazy's Cars | Global Vehicle Sourcing & Curated Cars"
+                />
+                <meta
+                    property="og:description"
+                    content="Exceptional cars. Simply yours. Global vehicle sourcing, import/export, and curated car collections presented without the noise."
+                />
+                <meta property="og:url" content="https://eazyscars.be/" />
+            </Head>
             <section className="relative min-h-[92vh] overflow-hidden bg-[#111311] text-white">
                 <img
                     src="/images/eazy-cars-hero.png"
