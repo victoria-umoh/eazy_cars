@@ -18,7 +18,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, bcmath, fileinfo
+          extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, bcmath, fileinfo, zip
           tools: composer:v2
 
       - name: Setup Node.js
@@ -35,7 +35,73 @@ jobs:
           npm ci || npm install
           npm run build
 
-      - name: Deploy to Easyhost via FTP/SFTP
+      - name: Generate Random Deployment Token
+        run: |
+          TOKEN=$(openssl rand -hex 16)
+          echo "DEPLOY_TOKEN=$TOKEN" >> $GITHUB_ENV
+
+      - name: Package Application & Create Extraction Script
+        run: |
+          # Create zip archive of the entire application including vendor and public/build
+          zip -r deploy.zip . -x ".git/*" ".github/*" "node_modules/*" "tests/*" ".phpunit*" ".env*" "storage/logs/*" "database/*.sqlite"
+
+          # Prepare deployment staging directory
+          mkdir -p deploy-package/public
+
+          # Move zip into staging
+          mv deploy.zip deploy-package/
+
+          # Copy root .htaccess
+          cp .htaccess deploy-package/.htaccess
+
+          # Create self-destructing extraction script
+          cat << 'EOF' > deploy-package/public/extract.php
+          <?php
+          $secretToken = '${{ env.DEPLOY_TOKEN }}';
+          if (!isset($_GET['token']) || $_GET['token'] !== $secretToken) {
+              http_response_code(403);
+              die('Unauthorized');
+          }
+
+          // Increase memory and execution time for unzipping
+          @ini_set('memory_limit', '256M');
+          @set_time_limit(180);
+
+          $rootPath = dirname(__DIR__);
+          $zipPath = $rootPath . '/deploy.zip';
+          if (!file_exists($zipPath)) {
+              $zipPath = __DIR__ . '/deploy.zip';
+              $rootPath = __DIR__;
+          }
+
+          if (!file_exists($zipPath)) {
+              http_response_code(404);
+              die('deploy.zip not found');
+          }
+
+          if (!class_exists('ZipArchive')) {
+              http_response_code(500);
+              die('ZipArchive PHP extension is missing on server');
+          }
+
+          $zip = new ZipArchive;
+          $res = $zip->open($zipPath);
+          if ($res === TRUE) {
+              $zip->extractTo($rootPath);
+              $zip->close();
+              @unlink($zipPath);
+              @unlink(__FILE__);
+              echo "DEPLOY_SUCCESS";
+          } else {
+              http_response_code(500);
+              echo "Failed to extract zip file. Code: " . $res;
+          }
+          EOF
+
+          # Substitute the actual token into the script
+          sed -i "s/\${{ env.DEPLOY_TOKEN }}/$DEPLOY_TOKEN/g" deploy-package/public/extract.php
+
+      - name: Fast Upload Deploy Package to Easyhost
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.EASYHOST_FTP_SERVER }}
@@ -44,14 +110,24 @@ jobs:
           server-dir: ${{ secrets.EASYHOST_SERVER_DIR || '/' }}
           protocol: ${{ secrets.EASYHOST_FTP_PROTOCOL || 'ftp' }}
           port: ${{ secrets.EASYHOST_FTP_PORT || 21 }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/tests/**
-            **/.phpunit*
-            .env
-            .env.example
-            .env.*
-            storage/logs/*.log
-            database/*.sqlite
+          local-dir: ./deploy-package/
+
+      - name: Trigger Remote Extraction on Server
+        run: |
+          echo "Triggering extraction on eazyscars.be..."
+          RESPONSE=$(curl -s -k "https://eazyscars.be/extract.php?token=${{ env.DEPLOY_TOKEN }}" || true)
+          echo "Server Response (primary): $RESPONSE"
+
+          # Fallback check if URL needs /public/ explicitly
+          if [[ "$RESPONSE" != *"DEPLOY_SUCCESS"* ]]; then
+            echo "Retrying with /public/extract.php..."
+            RESPONSE=$(curl -s -k "https://eazyscars.be/public/extract.php?token=${{ env.DEPLOY_TOKEN }}" || true)
+            echo "Server Response (fallback): $RESPONSE"
+          fi
+
+          if [[ "$RESPONSE" != *"DEPLOY_SUCCESS"* ]]; then
+            echo "::error::Extraction failed with response: $RESPONSE"
+            exit 1
+          fi
+
+          echo "Deployment successfully unpacked on Easyhost!"
