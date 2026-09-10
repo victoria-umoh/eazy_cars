@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.EASYHOST_FTP_USERNAME }}
           password: ${{ secrets.EASYHOST_FTP_PASSWORD }}
           server-dir: ${{ secrets.EASYHOST_SERVER_DIR || '/' }}
-          protocol: ${{ secrets.EASYHOST_FTP_PROTOCOL || 'ftps' }}
+          protocol: ${{ secrets.EASYHOST_FTP_PROTOCOL || 'ftp' }}
           port: ${{ secrets.EASYHOST_FTP_PORT || 21 }}
           exclude: |
             **/.git*
