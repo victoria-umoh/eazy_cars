@@ -72,12 +72,14 @@ export default function PublicShell({
                             WhatsApp
                         </a>
 
-                        <Link
-                            href={auth.user ? dashboard() : login()}
-                            className="hidden rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/80 transition hover:bg-white/20 sm:inline-flex"
-                        >
-                            {auth.user ? 'Admin' : 'Login'}
-                        </Link>
+                        {auth.user && (
+                            <Link
+                                href={dashboard()}
+                                className="hidden rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/80 transition hover:bg-white/20 sm:inline-flex"
+                            >
+                                Admin
+                            </Link>
+                        )}
 
                         <button
                             type="button"
@@ -117,12 +119,14 @@ export default function PublicShell({
                                 >
                                     WhatsApp Us ({whatsappNumber})
                                 </a>
-                                <Link
-                                    href={auth.user ? dashboard() : login()}
-                                    className="inline-flex items-center justify-center rounded-lg border border-white/20 px-4 py-2 text-sm font-semibold text-white"
-                                >
-                                    {auth.user ? 'Admin Dashboard' : 'Staff Login'}
-                                </Link>
+                                {auth.user && (
+                                    <Link
+                                        href={dashboard()}
+                                        className="inline-flex items-center justify-center rounded-lg border border-white/20 px-4 py-2 text-sm font-semibold text-white"
+                                    >
+                                        Admin Dashboard
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
