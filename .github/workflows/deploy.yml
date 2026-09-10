@@ -54,11 +54,11 @@ jobs:
           # Copy root .htaccess
           cp .htaccess deploy-package/.htaccess
 
-          # Create self-destructing extraction script
-          cat << 'EOF' > deploy-package/public/extract.php
+          # Create self-destructing extraction script with the generated deployment token
+          cat << EOF > deploy-package/public/extract.php
           <?php
-          $secretToken = '${{ env.DEPLOY_TOKEN }}';
-          if (!isset($_GET['token']) || $_GET['token'] !== $secretToken) {
+          \$secretToken = '$DEPLOY_TOKEN';
+          if (!isset(\$_GET['token']) || \$_GET['token'] !== \$secretToken) {
               http_response_code(403);
               die('Unauthorized');
           }
@@ -67,14 +67,14 @@ jobs:
           @ini_set('memory_limit', '256M');
           @set_time_limit(180);
 
-          $rootPath = dirname(__DIR__);
-          $zipPath = $rootPath . '/deploy.zip';
-          if (!file_exists($zipPath)) {
-              $zipPath = __DIR__ . '/deploy.zip';
-              $rootPath = __DIR__;
+          \$rootPath = dirname(__DIR__);
+          \$zipPath = \$rootPath . '/deploy.zip';
+          if (!file_exists(\$zipPath)) {
+              \$zipPath = __DIR__ . '/deploy.zip';
+              \$rootPath = __DIR__;
           }
 
-          if (!file_exists($zipPath)) {
+          if (!file_exists(\$zipPath)) {
               http_response_code(404);
               die('deploy.zip not found');
           }
@@ -84,22 +84,19 @@ jobs:
               die('ZipArchive PHP extension is missing on server');
           }
 
-          $zip = new ZipArchive;
-          $res = $zip->open($zipPath);
-          if ($res === TRUE) {
-              $zip->extractTo($rootPath);
-              $zip->close();
-              @unlink($zipPath);
+          \$zip = new ZipArchive;
+          \$res = \$zip->open(\$zipPath);
+          if (\$res === TRUE) {
+              \$zip->extractTo(\$rootPath);
+              \$zip->close();
+              @unlink(\$zipPath);
               @unlink(__FILE__);
               echo "DEPLOY_SUCCESS";
           } else {
               http_response_code(500);
-              echo "Failed to extract zip file. Code: " . $res;
+              echo "Failed to extract zip file. Code: " . \$res;
           }
           EOF
-
-          # Substitute the actual token into the script
-          sed -i "s/\${{ env.DEPLOY_TOKEN }}/$DEPLOY_TOKEN/g" deploy-package/public/extract.php
 
       - name: Fast Upload Deploy Package to Easyhost
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
