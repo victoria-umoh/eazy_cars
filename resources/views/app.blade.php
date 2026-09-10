@@ -8,8 +8,8 @@
         <meta name="theme-color" content="#0d1117">
 
         {{-- Primary Meta Tags & Open Graph Defaults --}}
-        <meta name="description" content="Eazy's Cars - Premium vehicle sourcing, international import and export, luxury and performance cars tailored to your specification across Belgium, Europe, USA, Canada, and Japan.">
-        <meta name="keywords" content="cars for sale, vehicle sourcing, car sourcing belgium, luxury cars, import cars, export cars, mercedes gle amg, toyota highlander, lexus rx350, international car dealer">
+        <meta name="description" content="Eazy's Cars - Premium vehicle sourcing, international import/export, and cars for sale across Belgium, Europe, USA, Canada, and Japan. Specializing in Mercedes-Benz ML350, GLE350, GLE43, GLC300, E300, E350, C300, C400, C500, Toyota Camry, Corolla, Highlander, and Lexus IS, ES350, RX350.">
+        <meta name="keywords" content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, cars for sale, vehicle sourcing belgium, international car dealer, luxury cars europe, car import export">
 
         <meta property="og:site_name" content="Eazy's Cars">
         <meta property="og:type" content="website">
@@ -52,14 +52,49 @@
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Car",
-                  "name": "Mercedes-Benz GLE350 AMG"
+                  "name": "Mercedes-Benz ML350"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Car",
-                  "name": "Mercedes-Benz ML350"
+                  "name": "Mercedes-Benz GLE350"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Mercedes-Benz GLE43"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Mercedes-Benz GLC300"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Mercedes-Benz E300 / E350"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Mercedes-Benz C300 / C400 / C500"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Toyota Camry"
                 }
               },
               {
@@ -74,6 +109,20 @@
                 "itemOffered": {
                   "@type": "Car",
                   "name": "Toyota Highlander"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Lexus IS"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Car",
+                  "name": "Lexus ES350"
                 }
               },
               {

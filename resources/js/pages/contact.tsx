@@ -37,7 +37,11 @@ export default function Contact() {
                 <title>Car Sourcing & Vehicle Request | Eazy's Cars</title>
                 <meta
                     name="description"
-                    content="Request a car sourced specifically for you. Eazy's Cars sources quality vehicles worldwide across Belgium, Europe, USA, Canada, and Japan."
+                    content="Request a car sourced specifically for you. Eazy's Cars sources quality vehicles worldwide across Belgium, Europe, USA, Canada, and Japan. Sourcing Mercedes-Benz (ML350, GLE350, GLE43, GLC300, E300/E350, C300/C400/C500), Toyota (Camry, Corolla, Highlander), and Lexus (IS, ES350, RX350)."
+                />
+                <meta
+                    name="keywords"
+                    content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, car sourcing request, vehicle import, custom car order"
                 />
                 <link rel="canonical" href="https://eazyscars.be/find-your-car" />
                 <meta

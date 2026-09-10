@@ -10,13 +10,17 @@ export default function Inventory() {
                 <title>Cars for Sale | Featured Vehicles | Eazy's Cars</title>
                 <meta
                     name="description"
-                    content="Browse premium and curated cars for sale at Eazy's Cars. Sourced on request across Europe, USA, Canada, and Japan including Mercedes-Benz, Toyota, Lexus and more."
+                    content="Browse premium cars for sale at Eazy's Cars. Sourced on request across Europe, USA, Canada, and Japan. Specializing in Mercedes-Benz ML350, GLE350, GLE43, GLC300, E300/E350, C300/C400/C500, Toyota Camry, Corolla, Highlander, and Lexus IS, ES350, RX350."
+                />
+                <meta
+                    name="keywords"
+                    content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, cars for sale, luxury cars belgium, car sourcing"
                 />
                 <link rel="canonical" href="https://eazyscars.be/cars-for-sale" />
                 <meta property="og:title" content="Cars for Sale | Eazy's Cars" />
                 <meta
                     property="og:description"
-                    content="Browse vehicles available through Eazy's Cars or request a vehicle to be sourced specifically for you."
+                    content="Browse vehicles available through Eazy's Cars or request a vehicle to be sourced specifically for you. Mercedes-Benz, Toyota, Lexus and more."
                 />
                 <meta property="og:url" content="https://eazyscars.be/cars-for-sale" />
             </Head>

@@ -12,7 +12,11 @@ export default function Welcome() {
                 <title>Eazy's Cars | Global Vehicle Sourcing & Curated Cars</title>
                 <meta
                     name="description"
-                    content="Eazy's Cars - A considered collection of luxury, performance, and modern classic cars. Sourced worldwide across Belgium, Europe, USA, Canada, and Japan."
+                    content="Eazy's Cars - A considered collection of luxury, performance, and modern classic cars. Sourced worldwide across Belgium, Europe, USA, Canada, and Japan. Mercedes-Benz (ML350, GLE350, GLE43, GLC300, E300, E350, C300, C400, C500), Toyota (Camry, Corolla, Highlander), Lexus (IS, ES350, RX350)."
+                />
+                <meta
+                    name="keywords"
+                    content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, cars for sale, luxury cars, global car sourcing"
                 />
                 <link rel="canonical" href="https://eazyscars.be/" />
                 <meta
