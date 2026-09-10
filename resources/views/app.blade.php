@@ -24,117 +24,45 @@
         <meta name="twitter:creator" content="@eazyscars">
         <meta name="twitter:image" content="{{ asset('images/eazy-cars-hero.png') }}">
 
-        {{-- Structured Data (Schema.org JSON-LD) --}}
+        {{-- Structured Data (Schema.org JSON-LD via json_encode to prevent Blade/Livewire compiler parse errors) --}}
         <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "AutoDealer",
-          "name": "Eazy's Cars",
-          "url": "https://eazyscars.be",
-          "logo": "https://eazyscars.be/favicon.svg",
-          "image": "https://eazyscars.be/images/eazy-cars-hero.png",
-          "description": "Global car sourcing, luxury & performance vehicle sales, and reliable international import/export services.",
-          "telephone": "+32497911005",
-          "email": "info@eazyscars.be",
-          "priceRange": "$$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "BE"
-          },
-          "sameAs": [
-            "https://wa.me/32497911005"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Featured Vehicles for Sale & Sourcing",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz ML350"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz GLE350"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz GLE43"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz GLC300"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz E300 / E350"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Mercedes-Benz C300 / C400 / C500"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Toyota Camry"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Toyota Corolla"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Toyota Highlander"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Lexus IS"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Lexus ES350"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Car",
-                  "name": "Lexus RX350"
-                }
-              }
-            ]
-          }
-        }
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'AutoDealer',
+            'name' => "Eazy's Cars",
+            'url' => 'https://eazyscars.be',
+            'logo' => 'https://eazyscars.be/favicon.svg',
+            'image' => asset('images/eazy-cars-hero.png'),
+            'description' => 'Global car sourcing, luxury & performance vehicle sales, and reliable international import/export services.',
+            'telephone' => '+32497911005',
+            'email' => 'info@eazyscars.be',
+            'priceRange' => '$$$$',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressCountry' => 'BE',
+            ],
+            'sameAs' => [
+                'https://wa.me/32497911005',
+            ],
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Featured Vehicles for Sale & Sourcing',
+                'itemListElement' => [
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz ML350']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLE350']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLE43']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLC300']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz E300 / E350']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz C300 / C400 / C500']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Toyota Camry']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Toyota Corolla']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Toyota Highlander']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Lexus IS']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Lexus ES350']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Lexus RX350']],
+                ],
+            ],
+        ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
         </script>
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
