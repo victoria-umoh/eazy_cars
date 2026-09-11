@@ -18,7 +18,7 @@ class ExampleTest extends TestCase
 
     public function test_public_showroom_pages_are_available(): void
     {
-        foreach (['inventory', 'about', 'contact'] as $route) {
+        foreach (['inventory', 'cars-for-sale', 'about', 'contact', 'find-your-car', 'markets', 'europe', 'auctions', 'export'] as $route) {
             $this->get(route($route))->assertOk();
         }
     }

@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
 import VehicleCard from '@/components/vehicle-card';
 import { vehicles } from '@/data/vehicles';
@@ -7,57 +7,43 @@ export default function Inventory() {
     return (
         <PublicShell>
             <Head>
-                <title>Cars for Sale | Featured Vehicles | Eazy's Cars</title>
+                <title>Cars for Sale | Eazy's Cars</title>
                 <meta
                     name="description"
-                    content="Browse premium cars for sale at Eazy's Cars. Sourced on request across Europe, USA, Canada, and Japan. Specializing in Mercedes-Benz ML350, GLE350, GLE43, GLC300, E300/E350, C300/C400/C500, Toyota Camry, Corolla, Highlander, and Lexus IS, ES350, RX350."
+                    content="Browse vehicles available through Eazy's Cars or request a vehicle to be sourced specifically for you."
                 />
-                <meta
-                    name="keywords"
-                    content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, cars for sale, luxury cars belgium, car sourcing"
-                />
-                <link rel="canonical" href="https://eazyscars.be/cars-for-sale" />
-                <meta property="og:title" content="Cars for Sale | Eazy's Cars" />
-                <meta
-                    property="og:description"
-                    content="Browse vehicles available through Eazy's Cars or request a vehicle to be sourced specifically for you. Mercedes-Benz, Toyota, Lexus and more."
-                />
-                <meta property="og:url" content="https://eazyscars.be/cars-for-sale" />
             </Head>
 
-            {/* Page Hero Section */}
-            <section className="bg-gradient-to-br from-[#0b1119] to-[#151d28] py-[110px] pb-[70px] text-white">
-                <div className="mx-auto w-[min(1180px,92%)]">
-                    <p className="mb-3.5 text-[12px] font-extrabold tracking-[2px] text-[#d8ad55] uppercase">
-                        CARS FOR SALE
+            <section className="page-hero page-hero-mercedes-gle350">
+                <div className="container">
+                    <p className="eyebrow">CARS FOR SALE</p>
+                    <h1>Featured Vehicles</h1>
+                    <p>
+                        Browse vehicles available through Eazy's Cars or request a
+                        vehicle to be sourced specifically for you.
                     </p>
-                    <h1 className="mb-4.5 text-[clamp(42px,6vw,68px)] font-extrabold leading-[1.05] tracking-[-2px] text-white">
-                        Featured Vehicles
-                    </h1>
-                    <p className="max-w-[720px] text-[18px] leading-relaxed text-[#c5cbd2]">
-                        Browse vehicles available through Eazy's Cars or request
-                        a vehicle to be sourced specifically for you.
-                    </p>
+                    <div className="hero-actions">
+                        <Link className="btn btn-primary" href="/cars-for-sale">
+                            🚗 View All Cars →
+                        </Link>
+                        <Link className="btn btn-light" href="/find-your-car">
+                            🔎 Request a Vehicle
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            {/* Page Section: Vehicles Grid */}
-            <section className="bg-white py-[85px]">
-                <div className="mx-auto w-[min(1180px,92%)]">
-                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {vehicles.map((vehicle, index) => (
-                            <VehicleCard
-                                key={vehicle.name}
-                                vehicle={vehicle}
-                                index={index}
-                            />
+            <section className="page-section">
+                <div className="container">
+                    <div className="vehicle-grid">
+                        {vehicles.map((vehicle) => (
+                            <VehicleCard key={vehicle.model} vehicle={vehicle} />
                         ))}
                     </div>
-
-                    <p className="mt-8 text-[12px] text-[#69717c]">
-                        Prices are available on request and depend on
-                        specification, condition, mileage, sourcing location,
-                        transport and applicable import costs.
+                    <p className="note">
+                        Prices are available on request and depend on specification,
+                        condition, mileage, sourcing location, transport and
+                        applicable import costs.
                     </p>
                 </div>
             </section>
