@@ -6,80 +6,63 @@ export default function Markets() {
         <PublicShell>
             <Head>
                 <title>Markets | Eazy's Cars</title>
-                <meta
-                    name="description"
-                    content="Source vehicles across Belgium, Germany, Netherlands, France, USA, Canada and Japan with Eazy's Cars."
-                />
             </Head>
 
-            <section className="page-hero">
+            <section className="page-hero page-hero-lexus-rx350">
                 <div className="container">
-                    <p className="eyebrow">EUROPE • USA / CANADA • JAPAN</p>
-                    <h1>Global vehicle sourcing markets.</h1>
+                    <p className="eyebrow">OUR MARKETS</p>
+                    <h1>Source from the market that suits you.</h1>
                     <p>
-                        Source vehicles across Belgium, Germany, Netherlands,
-                        France, USA, Canada and Japan.
+                        Choose the sourcing region that best matches your vehicle, budget
+                        and destination.
                     </p>
                 </div>
             </section>
 
             <section className="page-section">
                 <div className="container">
-                    <div className="market-grid">
-                        <div className="market-box">
-                            <div style={{ fontSize: '32px', marginBottom: '12px' }}>
-                                🇪🇺
-                            </div>
-                            <h3>Europe</h3>
+                    <div className="cards-grid">
+                        <div className="info-box">
+                            <h3>EU</h3>
                             <p>
-                                Belgium, Germany, Netherlands, France and licensed
-                                European dealer networks. Clean EU titles and export
-                                documents.
+                                <strong>European Cars</strong>
                             </p>
+                            <p>Vehicles sourced across Belgium and European markets.</p>
+                            <Link className="text-link" href="/europe">
+                                Explore Europe →
+                            </Link>
                         </div>
-                        <div className="market-box">
-                            <div style={{ fontSize: '32px', marginBottom: '12px' }}>
-                                🇺🇸
-                            </div>
-                            <h3>United States</h3>
+                        <div className="info-box">
+                            <h3>US</h3>
                             <p>
-                                Access to Copart, Manheim, IAAI auctions, and
-                                major dealership networks across the USA.
+                                <strong>USA / Canadian Cars</strong>
                             </p>
+                            <p>Source vehicles through North American channels.</p>
+                            <Link className="text-link" href="/usa-canada">
+                                Explore USA / Canada →
+                            </Link>
                         </div>
-                        <div className="market-box">
-                            <div style={{ fontSize: '32px', marginBottom: '12px' }}>
-                                🇨🇦
-                            </div>
-                            <h3>Canada</h3>
+                        <div className="info-box">
+                            <h3>JP</h3>
                             <p>
-                                Canadian dealer inventory and auction channels with
-                                direct port logistics to international destinations.
+                                <strong>Japanese Cars</strong>
                             </p>
+                            <p>Access Japanese vehicles through our sourcing service.</p>
+                            <Link className="text-link" href="/japan">
+                                Explore Japan →
+                            </Link>
                         </div>
-                        <div className="market-box">
-                            <div style={{ fontSize: '32px', marginBottom: '12px' }}>
-                                🇯🇵
-                            </div>
-                            <h3>Japan</h3>
+                        <div className="info-box">
+                            <h3>BE</h3>
                             <p>
-                                USS Tokyo, CAA, and Japanese wholesale auctions.
-                                Direct RoRo and container shipping worldwide.
+                                <strong>Belgium Cars</strong>
                             </p>
+                            <p>Local sourcing for Belgian and European customers.</p>
+                            <Link className="text-link" href="/find-your-car">
+                                Request sourcing →
+                            </Link>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section className="page-section" style={{ paddingTop: 0 }}>
-                <div className="container cta">
-                    <div>
-                        <h2>Looking for a vehicle from Europe, USA or Japan?</h2>
-                        <p>Tell us the make, model, year and budget.</p>
-                    </div>
-                    <Link className="btn btn-primary" href="/find-your-car">
-                        Request Sourcing
-                    </Link>
                 </div>
             </section>
         </PublicShell>

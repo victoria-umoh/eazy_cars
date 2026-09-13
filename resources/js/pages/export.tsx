@@ -5,87 +5,72 @@ export default function Export() {
     return (
         <PublicShell>
             <Head>
-                <title>Import / Export | Eazy's Cars</title>
-                <meta
-                    name="description"
-                    content="Reliable vehicle import and export services connecting Belgium, Europe, North America and international destinations."
-                />
+                <title>Import &amp; Export | Eazy's Cars</title>
             </Head>
 
-            <section className="page-hero">
+            <section className="page-hero page-hero-toyota-highlander">
                 <div className="container">
-                    <p className="eyebrow">IMPORT / EXPORT</p>
-                    <h1>International vehicle logistics.</h1>
+                    <p className="eyebrow">IMPORT &amp; EXPORT</p>
+                    <h1>From sourcing to destination.</h1>
                     <p>
-                        Comprehensive vehicle export services from Belgium, Europe,
-                        North America and Japan to global destinations.
+                        We help coordinate the vehicle sourcing and logistics process for
+                        customers and dealers, including international transport and
+                        shipping arrangements.
                     </p>
                 </div>
             </section>
 
             <section className="page-section">
+                <div className="container">
+                    <div className="steps-grid">
+                        <div className="step-box">
+                            <b>01</b>
+                            <h3>Tell us what you need</h3>
+                            <p>Vehicle, budget, destination and requirements.</p>
+                        </div>
+                        <div className="step-box">
+                            <b>02</b>
+                            <h3>We source options</h3>
+                            <p>
+                                We search suitable vehicles and provide available
+                                information.
+                            </p>
+                        </div>
+                        <div className="step-box">
+                            <b>03</b>
+                            <h3>You approve</h3>
+                            <p>You decide whether to proceed with a vehicle.</p>
+                        </div>
+                        <div className="step-box">
+                            <b>04</b>
+                            <h3>We coordinate</h3>
+                            <p>
+                                Purchase support, documentation and logistics
+                                coordination.
+                            </p>
+                        </div>
+                        <div className="step-box">
+                            <b>05</b>
+                            <h3>Shipping</h3>
+                            <p>
+                                We coordinate international transportation arrangements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="page-section dark-panel">
                 <div className="container two-col-page">
                     <div>
-                        <p className="eyebrow">EXPORT EXPERTISE</p>
-                        <h2>End-to-end international shipping and customs.</h2>
-                    </div>
-                    <div>
+                        <h2>Need an import or export quote?</h2>
                         <p>
-                            Eazy's Cars coordinates vehicle purchase, transport to
-                            port, Belgian export documentation (EX-A, transit plates),
-                            bill of lading, and freight booking to your destination port.
+                            Send us the vehicle details, origin, destination and
+                            requirements.
                         </p>
-                        <p>
-                            We ensure that all vehicles comply with destination
-                            regulations, age limits, and documentation requirements.
-                        </p>
-                        <Link className="btn btn-primary" href="/find-your-car">
-                            Request Export Sourcing
-                        </Link>
                     </div>
-                </div>
-            </section>
-
-            <section className="page-section soft">
-                <div className="container">
-                    <div className="page-heading">
-                        <p className="eyebrow">LOGISTICS PROCESS</p>
-                        <h2>Transparent, secure international handling.</h2>
-                    </div>
-                    <div className="cards-grid">
-                        <div className="info-box">
-                            <h3>Documentation</h3>
-                            <p>
-                                Export declarations, transit registration, EUR.1
-                                certificates, and clear title transfers.
-                            </p>
-                        </div>
-                        <div className="info-box">
-                            <h3>Freight Options</h3>
-                            <p>
-                                RoRo (Roll-on / Roll-off) for cost efficiency or
-                                dedicated container shipping for maximum protection.
-                            </p>
-                        </div>
-                        <div className="info-box">
-                            <h3>Tracking &amp; Handover</h3>
-                            <p>
-                                Regular status updates from pickup in Europe/US to port
-                                arrival and bill of lading delivery.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="page-section">
-                <div className="container cta">
-                    <div>
-                        <h2>Need a vehicle exported to your country?</h2>
-                        <p>Tell us your preferred model and destination port.</p>
-                    </div>
-                    <Link className="btn btn-primary" href="/find-your-car">
-                        Contact Export Desk
+                    <Link className="btn btn-light" href="/contact">
+                        Contact Eazy's Cars
                     </Link>
                 </div>
             </section>

@@ -6,10 +6,6 @@ export default function Contact() {
         <PublicShell>
             <Head>
                 <title>Contact | Eazy's Cars</title>
-                <meta
-                    name="description"
-                    content="Contact Eazy's Cars for vehicles for sale, vehicle sourcing, auction sourcing, dealer sourcing or import/export enquiries."
-                />
             </Head>
 
             <section className="page-hero page-hero-toyota-corolla">
@@ -42,7 +38,7 @@ export default function Contact() {
                     <p>
                         <strong>WhatsApp:</strong>{' '}
                         <a
-                            href="https://wa.me/32497911005"
+                            href="https://wa.me/32497911005?text=Hello%20Eazy's%20Cars,%20I%20would%20like%20to%20enquire%20about%20a%20vehicle."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -55,7 +51,7 @@ export default function Contact() {
                         </Link>
                         <a
                             className="btn btn-outline"
-                            href="https://wa.me/32497911005"
+                            href="https://wa.me/32497911005?text=Hello%20Eazy's%20Cars,%20I%20would%20like%20to%20enquire%20about%20a%20vehicle."
                             target="_blank"
                             rel="noopener noreferrer"
                         >

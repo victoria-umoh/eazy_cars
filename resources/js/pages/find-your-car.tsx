@@ -1,10 +1,9 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { Head, useForm } from '@inertiajs/react';
-import { toast } from 'sonner';
 import PublicShell from '@/components/public-shell';
 
 export default function FindYourCar() {
-    const { data, setData, post, processing, reset, recentlySuccessful } = useForm({
+    const { data, setData, post, processing, reset } = useForm({
         name: '',
         phone: '',
         email: '',
@@ -14,30 +13,49 @@ export default function FindYourCar() {
         budget: '',
         destination: '',
         requirements: '',
+        type: 'sourcing',
     });
+
+    const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
+
+        // 1. Post to backend inquiry store
         post('/inquiries', {
             preserveScroll: true,
             onSuccess: () => {
-                toast.success('Vehicle request received! Our team will contact you shortly.');
-                reset();
+                setSubmitted(true);
             },
         });
+
+        // 2. Open WhatsApp with formatted request message matching script.js
+        const msg = [
+            "EAZY'S CARS — VEHICLE SOURCING REQUEST",
+            `Name: ${data.name || ''}`,
+            `Phone/WhatsApp: ${data.phone || ''}`,
+            `Email: ${data.email || ''}`,
+            `Make: ${data.make || ''}`,
+            `Model: ${data.model || ''}`,
+            `Year: ${data.year || ''}`,
+            `Budget: ${data.budget || ''}`,
+            `Destination: ${data.destination || ''}`,
+            `Requirements: ${data.requirements || ''}`,
+        ].join('\n');
+
+        window.open(
+            `https://wa.me/32497911005?text=${encodeURIComponent(msg)}`,
+            '_blank'
+        );
     };
 
     return (
         <PublicShell>
             <Head>
                 <title>Car Sourcing | Eazy's Cars</title>
-                <meta
-                    name="description"
-                    content="Can't find the right car? Let Eazy's Cars find it for you. Tell us what you need and we'll search our available sourcing channels."
-                />
             </Head>
 
-            <section className="page-hero">
+            <section className="page-hero page-hero-mercedes-glc300">
                 <div className="container">
                     <p className="eyebrow">CAR SOURCING SERVICE</p>
                     <h1>Can't find the right car?</h1>
@@ -67,9 +85,13 @@ export default function FindYourCar() {
                         </div>
                     </div>
 
-                    <form className="sourcing-form" onSubmit={handleSubmit}>
+                    <form
+                        className="sourcing-form"
+                        id="sourcingForm"
+                        onSubmit={handleSubmit}
+                    >
                         <h3>Request a Vehicle</h3>
-                        {recentlySuccessful && (
+                        {submitted && (
                             <div
                                 style={{
                                     padding: '12px 16px',
@@ -81,7 +103,7 @@ export default function FindYourCar() {
                                     fontWeight: 'bold',
                                 }}
                             >
-                                ✓ Thank you! We received your request and will contact you via WhatsApp or Email.
+                                ✓ Vehicle request sent! Check your WhatsApp window.
                             </div>
                         )}
                         <div className="form-row">
@@ -89,20 +111,20 @@ export default function FindYourCar() {
                                 Name
                                 <input
                                     name="name"
-                                    value={data.name}
-                                    onChange={(e) => setData('name', e.target.value)}
                                     placeholder="Your name"
                                     required
+                                    value={data.name}
+                                    onChange={(e) => setData('name', e.target.value)}
                                 />
                             </label>
                             <label>
                                 WhatsApp / Phone
                                 <input
                                     name="phone"
-                                    value={data.phone}
-                                    onChange={(e) => setData('phone', e.target.value)}
                                     placeholder="+32 ..."
                                     required
+                                    value={data.phone}
+                                    onChange={(e) => setData('phone', e.target.value)}
                                 />
                             </label>
                         </div>
@@ -111,10 +133,10 @@ export default function FindYourCar() {
                             <input
                                 type="email"
                                 name="email"
-                                value={data.email}
-                                onChange={(e) => setData('email', e.target.value)}
                                 placeholder="you@example.com"
                                 required
+                                value={data.email}
+                                onChange={(e) => setData('email', e.target.value)}
                             />
                         </label>
                         <div className="form-row">
@@ -122,18 +144,18 @@ export default function FindYourCar() {
                                 Make
                                 <input
                                     name="make"
+                                    placeholder="Mercedes-Benz"
                                     value={data.make}
                                     onChange={(e) => setData('make', e.target.value)}
-                                    placeholder="Mercedes-Benz"
                                 />
                             </label>
                             <label>
                                 Model
                                 <input
                                     name="model"
+                                    placeholder="GLE 43 AMG"
                                     value={data.model}
                                     onChange={(e) => setData('model', e.target.value)}
-                                    placeholder="GLE 43 AMG"
                                 />
                             </label>
                         </div>
@@ -142,18 +164,18 @@ export default function FindYourCar() {
                                 Year
                                 <input
                                     name="year"
+                                    placeholder="2017–2019"
                                     value={data.year}
                                     onChange={(e) => setData('year', e.target.value)}
-                                    placeholder="2017–2019"
                                 />
                             </label>
                             <label>
                                 Budget
                                 <input
                                     name="budget"
+                                    placeholder="€ / $"
                                     value={data.budget}
                                     onChange={(e) => setData('budget', e.target.value)}
-                                    placeholder="€ / $"
                                 />
                             </label>
                         </div>
@@ -161,19 +183,23 @@ export default function FindYourCar() {
                             Destination country
                             <input
                                 name="destination"
-                                value={data.destination}
-                                onChange={(e) => setData('destination', e.target.value)}
                                 placeholder="Belgium / Nigeria / ..."
+                                value={data.destination}
+                                onChange={(e) =>
+                                    setData('destination', e.target.value)
+                                }
                             />
                         </label>
                         <label>
                             Requirements
                             <textarea
                                 name="requirements"
-                                value={data.requirements}
-                                onChange={(e) => setData('requirements', e.target.value)}
                                 rows={4}
                                 placeholder="Tell us about mileage, colour, options, condition, etc."
+                                value={data.requirements}
+                                onChange={(e) =>
+                                    setData('requirements', e.target.value)
+                                }
                             />
                         </label>
                         <button
@@ -181,7 +207,7 @@ export default function FindYourCar() {
                             type="submit"
                             disabled={processing}
                         >
-                            {processing ? 'Submitting...' : 'Send Vehicle Request'}
+                            {processing ? 'Sending...' : 'Send Vehicle Request'}
                         </button>
                     </form>
                 </div>

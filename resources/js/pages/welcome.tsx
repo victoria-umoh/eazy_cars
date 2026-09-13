@@ -12,7 +12,7 @@ export default function Welcome() {
                 />
             </Head>
 
-            <section className="hero">
+            <section className="hero hero-gle350">
                 <div className="container hero-content">
                     <p className="eyebrow">EUROPE • USA / CANADA • JAPAN</p>
                     <h1>

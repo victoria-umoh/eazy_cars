@@ -15,17 +15,14 @@ export default function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
                 <p>
                     {vehicle.yearRange} | {vehicle.transmission} | {vehicle.fuel}
                 </p>
-                <div>
-                    <span className="status">{vehicle.status}</span>
-                </div>
-                <div style={{ marginTop: '12px' }}>
-                    <Link
-                        className="btn btn-primary small"
-                        href="/find-your-car"
-                    >
-                        Request Price
-                    </Link>
-                </div>
+                <span className="status">{vehicle.status}</span>
+                <br />
+                <Link
+                    className="btn btn-primary small"
+                    href="/find-your-car"
+                >
+                    Request Price
+                </Link>
             </div>
         </article>
     );

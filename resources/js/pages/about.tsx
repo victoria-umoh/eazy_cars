@@ -6,13 +6,9 @@ export default function About() {
         <PublicShell>
             <Head>
                 <title>About Us | Eazy's Cars</title>
-                <meta
-                    name="description"
-                    content="Eazy's Cars is a Belgium-based vehicle sourcing business focused on helping customers and dealers find vehicles from international markets."
-                />
             </Head>
 
-            <section className="page-hero">
+            <section className="page-hero page-hero-toyota-camry">
                 <div className="container">
                     <p className="eyebrow">ABOUT EAZY'S CARS</p>
                     <h1>A sourcing partner for customers and dealers.</h1>

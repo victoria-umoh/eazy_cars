@@ -16,6 +16,9 @@ export default function PublicShell({
         return false;
     };
 
+    const waUrl =
+        "https://wa.me/32497911005?text=Hello%20Eazy's%20Cars,%20I%20would%20like%20to%20enquire%20about%20a%20vehicle.";
+
     return (
         <div className="site-wrapper">
             <header className="site-header">
@@ -90,7 +93,7 @@ export default function PublicShell({
                     </nav>
                     <a
                         className="nav-whatsapp"
-                        href="https://wa.me/32497911005"
+                        href={waUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -162,7 +165,7 @@ export default function PublicShell({
                             <div>
                                 <strong>WhatsApp</strong>
                                 <a
-                                    href="https://wa.me/32497911005"
+                                    href={waUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -172,7 +175,7 @@ export default function PublicShell({
                         </div>
                         <a
                             className="footer-whatsapp-button"
-                            href="https://wa.me/32497911005"
+                            href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -192,7 +195,7 @@ export default function PublicShell({
 
             <div className="whatsapp-float">
                 <a
-                    href="https://wa.me/32497911005"
+                    href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
