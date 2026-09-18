@@ -1,21 +1,33 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function About() {
     return (
         <PublicShell>
-            <Head>
-                <title>About Us | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="About Eazy's Cars | International Car Sourcing & Export in Belgium"
+                description="About Eazy's Cars: Belgium's international vehicle sourcing partner. We help private buyers and dealers source cars in Europe, Belgium, Canada and USA, and ship second handed luxury cars to Africa and Nigeria."
+                keywords={[
+                    'Source cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA ship to Nigeria',
+                    'car sourcing belgium',
+                    'belgium car dealer export',
+                    'international car sourcing',
+                    'car import export services',
+                ]}
+                canonical="/about"
+            />
 
             <section className="page-hero page-hero-toyota-camry">
                 <div className="container">
-                    <p className="eyebrow">ABOUT EAZY'S CARS</p>
+                    <p className="eyebrow">ABOUT EAZY'S CARS • SOURCING &amp; EXPORT</p>
                     <h1>A sourcing partner for customers and dealers.</h1>
                     <p>
-                        Eazy's Cars is a Belgium-based vehicle sourcing business
-                        focused on helping customers and dealers find vehicles from
-                        international markets.
+                        Eazy's Cars is a Belgium-based vehicle sourcing and export company. We help private clients and automotive dealers source cars in Europe, Belgium, Canada and USA, and buy second handed luxury cars with verified shipping to Africa and Nigeria.
                     </p>
                 </div>
             </section>

@@ -1,20 +1,32 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function Contact() {
     return (
         <PublicShell>
-            <Head>
-                <title>Contact | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="Contact Eazy's Cars | Belgium Car Dealer & Vehicle Export Sourcing"
+                description="Get in touch with Eazy's Cars in Belgium. Contact us to source cars in Europe, Belgium, Canada and USA, buy second handed luxury cars, or arrange ocean shipping to Africa and Nigeria."
+                keywords={[
+                    'Source cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA ship to Nigeria',
+                    'car sourcing belgium',
+                    'belgium car dealer export',
+                    'car import export services',
+                ]}
+                canonical="/contact"
+            />
 
             <section className="page-hero page-hero-toyota-corolla">
                 <div className="container">
-                    <p className="eyebrow">CONTACT EAZY'S CARS</p>
+                    <p className="eyebrow">CONTACT EAZY'S CARS • BELGIUM</p>
                     <h1>Let's find your next car.</h1>
                     <p>
-                        Contact us for vehicles for sale, vehicle sourcing, auction
-                        sourcing, dealer sourcing or import/export enquiries.
+                        Contact us to source cars in Europe, Belgium, Canada and USA, buy second handed luxury cars, or arrange export and ocean shipping to Africa and Nigeria.
                     </p>
                 </div>
             </section>

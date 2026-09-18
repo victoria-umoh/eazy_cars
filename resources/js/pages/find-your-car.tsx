@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
-import { Head, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function FindYourCar() {
     const { data, setData, post, processing, reset } = useForm({
@@ -51,17 +52,33 @@ export default function FindYourCar() {
 
     return (
         <PublicShell>
-            <Head>
-                <title>Car Sourcing | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="Source Cars in Europe, Belgium, Canada & USA | Custom Vehicle Sourcing & Export"
+                description="Source cars in Europe, Belgium, Canada and USA on request. Custom vehicle sourcing for private buyers and dealers with direct ocean shipping to Africa and Nigeria."
+                keywords={[
+                    'Source cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria',
+                    'car sourcing belgium',
+                    'vehicle sourcing europe',
+                    'international car sourcing',
+                    'source a car on request',
+                    'custom vehicle request',
+                    'auction car sourcing europe / usa / japan',
+                    'car sourcing europe to nigeria',
+                    'belgium car dealer export',
+                ]}
+                canonical="/find-your-car"
+            />
 
             <section className="page-hero page-hero-mercedes-glc300">
                 <div className="container">
-                    <p className="eyebrow">CAR SOURCING SERVICE</p>
+                    <p className="eyebrow">CAR SOURCING SERVICE • EUROPE • BELGIUM • CANADA • USA</p>
                     <h1>Can't find the right car?</h1>
                     <p>
-                        Let Eazy's Cars find it for you. Tell us what you need and
-                        we'll search our available sourcing channels.
+                        Source cars in Europe, Belgium, Canada and USA. Tell us what you need and we'll search our available sourcing and auction channels, with verified shipping to Africa, Nigeria, and Europe.
                     </p>
                 </div>
             </section>
@@ -69,11 +86,10 @@ export default function FindYourCar() {
             <section className="page-section sourcing">
                 <div className="container sourcing-layout">
                     <div>
-                        <p className="eyebrow">REQUEST A VEHICLE</p>
+                        <p className="eyebrow">CUSTOM VEHICLE REQUEST</p>
                         <h2>Tell us your requirements.</h2>
                         <p className="lead">
-                            We source for customers and dealers across Belgium,
-                            Europe, USA/Canada and Japan.
+                            We source for customers and dealers across Belgium, Europe, Canada, USA and Japan — offering direct vehicle shipping to Africa and Nigeria.
                         </p>
                         <div className="fee-box">
                             <b>Transparent costs</b>

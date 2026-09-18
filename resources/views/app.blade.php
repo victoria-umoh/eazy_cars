@@ -8,16 +8,19 @@
         <meta name="theme-color" content="#0d1117">
 
         {{-- Primary Meta Tags & Open Graph Defaults --}}
-        <meta name="description" content="Eazy's Cars - Premium vehicle sourcing, international import/export, and cars for sale across Belgium, Europe, USA, Canada, and Japan. Specializing in Mercedes-Benz ML350, GLE350, GLE43, GLC300, E300, E350, C300, C400, C500, Toyota Camry, Corolla, Highlander, and Lexus IS, ES350, RX350.">
-        <meta name="keywords" content="MERCEDES BENZ ML350, MERCEDES BENZ GLE350, MERCEDES BENZ GLE43, MERCEDES BENZ GLC300, MERCEDES BENZ E300, MERCEDES BENZ E350, MERCEDES BENZ C300, MERCEDES BENZ C400, MERCEDES BENZ C500, TOYOTA CAMRY, TOYOTA COROLLA, TOYOTA HIGHLANDER, LEXUS IS, LEXUS ES350, LEXUS RX350, cars for sale, vehicle sourcing belgium, international car dealer, luxury cars europe, car import export">
+        <meta name="description" content="Eazy's Cars - Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury cars in Europe, Belgium, Canada and USA and ship to Africa and Nigeria. Premium vehicle sourcing, international auctions, and import/export.">
+        <meta name="keywords" content="Source cars in Europe, Belgium, Canada and USA, Buy second handed cars in Europe, Belgium, Canada and USA, Buy second handed luxury cars in Europe, Belgium, Canada and USA, Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa, Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria, car sourcing belgium, vehicle sourcing europe, international car sourcing, car import export services, source a car on request, custom vehicle request, auction car sourcing europe / usa / japan, cars for sale belgium, luxury cars for sale, mercedes-benz gle 350 amg for sale, mercedes ml350 import, toyota highlander usa canada import, lexus rx350 japan usa, curated performance cars, car sourcing europe to nigeria, belgium car dealer export, usa to europe car shipping, japan to belgium car sourcing">
+
+        <link rel="canonical" href="{{ url()->current() }}">
 
         <meta property="og:site_name" content="Eazy's Cars">
         <meta property="og:type" content="website">
         <meta property="og:locale" content="en_US">
+        <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:image" content="{{ asset('images/eazy-cars-hero.png') }}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Eazy's Cars - Curated Motoring & Global Vehicle Sourcing">
+        <meta property="og:image:alt" content="Eazy's Cars - Source cars in Europe, Belgium, Canada and USA | Buy second handed cars ship to Nigeria & Africa">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@eazyscars">
@@ -27,22 +30,57 @@
         {{-- Structured Data (Schema.org JSON-LD via json_encode to prevent Blade/Livewire compiler parse errors) --}}
         <script type="application/ld+json">
         {!! json_encode([
-            '@context' => 'https://schema.org',
-            '@type' => 'AutoDealer',
+            '@'.'context' => 'https://schema.org',
+            '@'.'type' => 'AutoDealer',
             'name' => "Eazy's Cars",
             'url' => 'https://eazyscars.be',
             'logo' => 'https://eazyscars.be/favicon.svg',
             'image' => asset('images/eazy-cars-hero.png'),
-            'description' => 'Global car sourcing, luxury & performance vehicle sales, and reliable international import/export services.',
+            'description' => 'Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury cars in Europe, Belgium, Canada and USA and ship to Africa and Nigeria. Premium vehicle sourcing, international auctions, and import/export.',
             'telephone' => '+32497911005',
             'email' => 'info@eazyscars.be',
-            'priceRange' => '$$$$',
+            'priceRange' => '€€€€',
             'address' => [
                 '@type' => 'PostalAddress',
                 'addressCountry' => 'BE',
             ],
+            'areaServed' => [
+                ['@type' => 'Country', 'name' => 'Belgium'],
+                ['@type' => 'AdministrativeArea', 'name' => 'Europe'],
+                ['@type' => 'Country', 'name' => 'Canada'],
+                ['@type' => 'Country', 'name' => 'United States'],
+                ['@type' => 'Country', 'name' => 'Nigeria'],
+                ['@type' => 'Continent', 'name' => 'Africa'],
+            ],
             'sameAs' => [
                 'https://wa.me/32497911005',
+            ],
+            'makesOffer' => [
+                [
+                    '@type' => 'Offer',
+                    'name' => 'Source cars in Europe, Belgium, Canada and USA',
+                    'description' => 'Personalized international vehicle sourcing across Belgium, European dealer networks, North American auctions, and Japan.',
+                ],
+                [
+                    '@type' => 'Offer',
+                    'name' => 'Buy second handed cars in Europe, Belgium, Canada and USA',
+                    'description' => 'Curated inventory and sourcing for second-handed cars with verified history.',
+                ],
+                [
+                    '@type' => 'Offer',
+                    'name' => 'Buy second handed luxury cars in Europe, Belgium, Canada and USA',
+                    'description' => 'Premium used luxury vehicles including Mercedes-Benz AMG, Lexus, and high-spec SUVs.',
+                ],
+                [
+                    '@type' => 'Offer',
+                    'name' => 'Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa',
+                    'description' => 'Complete vehicle purchase and international ocean freight shipping to African ports.',
+                ],
+                [
+                    '@type' => 'Offer',
+                    'name' => 'Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria',
+                    'description' => 'Direct car sourcing and shipping to Lagos (Tin Can Island and Apapa Ports), Nigeria.',
+                ],
             ],
             'hasOfferCatalog' => [
                 '@type' => 'OfferCatalog',
@@ -50,7 +88,7 @@
                 'itemListElement' => [
                     ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz ML350']],
                     ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLE350']],
-                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLE43']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLE43 AMG']],
                     ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz GLC300']],
                     ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz E300 / E350']],
                     ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Car', 'name' => 'Mercedes-Benz C300 / C400 / C500']],

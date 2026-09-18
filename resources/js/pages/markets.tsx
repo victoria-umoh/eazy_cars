@@ -1,20 +1,35 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function Markets() {
     return (
         <PublicShell>
-            <Head>
-                <title>Markets | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="Vehicle Sourcing Markets | Europe, Belgium, Canada & USA Car Sourcing"
+                description="Source cars in Europe, Belgium, Canada and USA. Access dealer networks and auctions across Belgium, Europe, North America, and Japan with shipping to Africa and Nigeria."
+                keywords={[
+                    'Source cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria',
+                    'vehicle sourcing europe',
+                    'car sourcing belgium',
+                    'international car sourcing',
+                    'auction car sourcing europe / usa / japan',
+                    'belgium car dealer export',
+                    'japan to belgium car sourcing',
+                ]}
+                canonical="/markets"
+            />
 
             <section className="page-hero page-hero-lexus-rx350">
                 <div className="container">
-                    <p className="eyebrow">OUR MARKETS</p>
+                    <p className="eyebrow">OUR SOURCING MARKETS • EUROPE • BELGIUM • CANADA • USA • JAPAN</p>
                     <h1>Source from the market that suits you.</h1>
                     <p>
-                        Choose the sourcing region that best matches your vehicle, budget
-                        and destination.
+                        Source cars in Europe, Belgium, Canada and USA. Choose the sourcing region that best matches your vehicle, budget and destination — with direct shipping to Africa and Nigeria.
                     </p>
                 </div>
             </section>

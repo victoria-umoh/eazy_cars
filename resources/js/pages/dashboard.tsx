@@ -7,6 +7,7 @@ import {
     MessageSquareText,
     TrendingUp,
 } from 'lucide-react';
+import { dashboard } from '@/routes';
 import dashboardRoutes from '@/routes/dashboard';
 
 interface RecentInquiry {
@@ -168,4 +169,4 @@ export default function Dashboard({
     );
 }
 
-Dashboard.layout = { breadcrumbs: [{ title: 'Dashboard', href: dashboardRoutes.dashboard() }] };
+Dashboard.layout = { breadcrumbs: [{ title: 'Dashboard', href: dashboard() }] };

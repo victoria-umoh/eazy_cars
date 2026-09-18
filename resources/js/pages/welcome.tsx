@@ -1,26 +1,49 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function Welcome() {
     return (
         <PublicShell>
-            <Head>
-                <title>Eazy's Cars | Buy. Source. Import. Export.</title>
-                <meta
-                    name="description"
-                    content="Eazy's Cars - vehicle sourcing, import and export from Belgium, Europe, USA/Canada and Japan."
-                />
-            </Head>
+            <SeoHead
+                title="Eazy's Cars | Source Cars in Europe, Belgium, Canada & USA | Buy Second Handed Luxury Cars"
+                description="Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury cars in Europe, Belgium, Canada and USA and ship to Africa and Nigeria. Reliable vehicle sourcing, dealer export, and curated inventory."
+                keywords={[
+                    'Source cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium, Canada and USA',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria',
+                    'car sourcing belgium',
+                    'vehicle sourcing europe',
+                    'international car sourcing',
+                    'car import export services',
+                    'source a car on request',
+                    'custom vehicle request',
+                    'auction car sourcing europe / usa / japan',
+                    'cars for sale belgium',
+                    'luxury cars for sale',
+                    'mercedes-benz gle 350 amg for sale',
+                    'mercedes ml350 import',
+                    'toyota highlander usa canada import',
+                    'lexus rx350 japan usa',
+                    'curated performance cars',
+                    'car sourcing europe to nigeria',
+                    'belgium car dealer export',
+                    'usa to europe car shipping',
+                    'japan to belgium car sourcing',
+                ]}
+                canonical="/"
+            />
 
             <section className="hero hero-gle350">
                 <div className="container hero-content">
-                    <p className="eyebrow">EUROPE • USA / CANADA • JAPAN</p>
+                    <p className="eyebrow">EUROPE • BELGIUM • CANADA • USA • JAPAN</p>
                     <h1>
                         Find Your <span>Next Car.</span>
                     </h1>
                     <p className="hero-text">
-                        Quality vehicles sourced from Belgium, Europe, USA/Canada and
-                        Japan.
+                        Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury vehicles with complete shipping to Africa and Nigeria.
                     </p>
                     <div className="hero-actions">
                         <Link className="btn btn-primary" href="/cars-for-sale">
@@ -36,16 +59,14 @@ export default function Welcome() {
             <section className="page-section">
                 <div className="container two-col-page">
                     <div>
-                        <p className="eyebrow">EAZY'S CARS</p>
+                        <p className="eyebrow">EAZY'S CARS SOURCING & EXPORT</p>
                         <h2>
                             More than a dealership — your vehicle sourcing partner.
                         </h2>
                     </div>
                     <div>
                         <p>
-                            We help customers and dealers find suitable vehicles
-                            through our international sourcing network. Tell us what
-                            you want and we will search the right market for you.
+                            We help private clients and auto dealers source cars in Europe, Belgium, Canada and USA. Buy second handed luxury cars, premium SUVs, and reliable daily drivers with seamless transport and direct export shipping to Africa and Nigeria.
                         </p>
                         <Link className="text-link" href="/find-your-car">
                             Let us find your car →

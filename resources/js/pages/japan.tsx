@@ -1,20 +1,31 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function Japan() {
     return (
         <PublicShell>
-            <Head>
-                <title>Japan Cars | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="Japanese Vehicle Sourcing & Auctions | Eazy's Cars"
+                description="Source Japanese cars and performance vehicles through vetted auction channels. Export and shipping to Belgium, Europe, Africa, and Nigeria."
+                keywords={[
+                    'japan to belgium car sourcing',
+                    'auction car sourcing europe / usa / japan',
+                    'Source cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA ship to Nigeria',
+                    'international car sourcing',
+                ]}
+                canonical="/japan"
+            />
 
             <section className="page-hero">
                 <div className="container">
-                    <p className="eyebrow">JAPAN</p>
+                    <p className="eyebrow">JAPANESE SOURCING &amp; AUCTIONS</p>
                     <h1>Japanese vehicle sourcing.</h1>
                     <p>
-                        Access Japanese vehicles through our sourcing service and
-                        available auction channels.
+                        Access Japanese vehicles and auctions through our international sourcing service, with delivery to Belgium, Europe, Africa, and Nigeria.
                     </p>
                 </div>
             </section>

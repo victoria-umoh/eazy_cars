@@ -69,5 +69,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'in_progress',
             ]);
         }
+
+        $this->call(VehicleSeeder::class);
     }
 }

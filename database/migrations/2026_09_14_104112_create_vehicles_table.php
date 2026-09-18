@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('vehicles', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('brand');
+            $table->string('model');
+            $table->string('name');
+            $table->string('tag');
+            $table->string('year_range');
+            $table->string('transmission')->default('Automatic');
+            $table->string('fuel')->default('Petrol');
+            $table->string('price')->nullable()->default('On Request');
+            $table->string('status')->default('SOURCE ON REQUEST');
+            $table->string('image_class')->nullable();
+            $table->string('image_url')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('is_featured')->default(true);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('vehicles');
+    }
+};

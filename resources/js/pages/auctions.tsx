@@ -1,20 +1,33 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import PublicShell from '@/components/public-shell';
+import SeoHead from '@/components/seo-head';
 
 export default function Auctions() {
     return (
         <PublicShell>
-            <Head>
-                <title>Auctions | Eazy's Cars</title>
-            </Head>
+            <SeoHead
+                title="Auction Car Sourcing | Europe, USA & Japan Vehicle Auctions"
+                description="Auction car sourcing across Europe, Belgium, Canada, USA and Japan. Buy second handed cars and luxury vehicles through wholesale auto auctions with shipping to Africa and Nigeria."
+                keywords={[
+                    'auction car sourcing europe / usa / japan',
+                    'Source cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed luxury cars in Europe, Belgium , Canada and USA',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA and ship to Africa',
+                    'Buy second handed cars in Europe, Belgium , Canada and USA ship to Nigeria',
+                    'car sourcing belgium',
+                    'international car sourcing',
+                    'curated performance cars',
+                ]}
+                canonical="/auctions"
+            />
 
             <section className="page-hero page-hero-mercedes-gle43">
                 <div className="container">
-                    <p className="eyebrow">AUCTIONS</p>
+                    <p className="eyebrow">AUCTION SOURCING • EUROPE • USA • CANADA • JAPAN</p>
                     <h1>Find the right auction vehicle.</h1>
                     <p>
-                        Tell us what you want and we can help identify suitable vehicles
-                        through our available sourcing and auction channels.
+                        Source cars in Europe, Belgium, Canada and USA through vetted auction channels. We evaluate history, inspect condition, coordinate bidding, and manage ocean freight shipping to Africa and Nigeria.
                     </p>
                 </div>
             </section>

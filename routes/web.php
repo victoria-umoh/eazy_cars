@@ -1,14 +1,16 @@
 <?php
 
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\VehicleController;
 use App\Models\Inquiry;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 // Public Front-End Routes matching eazyscars.be & static HTML templates
 Route::inertia('/', 'welcome')->name('home');
-Route::inertia('inventory', 'inventory')->name('inventory');
-Route::inertia('cars-for-sale', 'inventory')->name('cars-for-sale');
+Route::get('inventory', [VehicleController::class, 'index'])->name('inventory');
+Route::get('cars-for-sale', [VehicleController::class, 'index'])->name('cars-for-sale');
 Route::inertia('find-your-car', 'find-your-car')->name('find-your-car');
 Route::inertia('markets', 'markets')->name('markets');
 Route::inertia('europe', 'europe')->name('europe');
@@ -39,13 +41,20 @@ Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.s
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard', [
-            'vehicleCount' => 8,
+            'vehicleCount' => Vehicle::count(),
             'inquiryCount' => Inquiry::count(),
             'newInquiryCount' => Inquiry::where('status', 'new')->count(),
             'recentInquiries' => Inquiry::latest()->take(5)->get(),
         ]);
     })->name('dashboard');
-    Route::inertia('dashboard/inventory', 'admin/inventory')->name('dashboard.inventory');
+
+    // Admin Inventory CRUD Routes
+    Route::get('dashboard/inventory', [VehicleController::class, 'adminIndex'])->name('dashboard.inventory');
+    Route::post('dashboard/inventory', [VehicleController::class, 'store'])->name('dashboard.inventory.store');
+    Route::post('dashboard/inventory/{vehicle}', [VehicleController::class, 'update'])->name('dashboard.inventory.update');
+    Route::delete('dashboard/inventory/{vehicle}', [VehicleController::class, 'destroy'])->name('dashboard.inventory.destroy');
+
+    // Admin Inquiries Routes
     Route::get('dashboard/inquiries', [InquiryController::class, 'index'])->name('dashboard.inquiries');
     Route::patch('dashboard/inquiries/{inquiry}/status', [InquiryController::class, 'updateStatus'])->name('dashboard.inquiries.status');
 });
