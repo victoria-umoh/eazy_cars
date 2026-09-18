@@ -11,6 +11,13 @@
         <meta name="description" content="Eazy's Cars - Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury cars in Europe, Belgium, Canada and USA and ship to Africa and Nigeria. Premium vehicle sourcing, international auctions, and import/export.">
         <meta name="keywords" content="Source cars in Europe, Belgium, Canada and USA, Buy second handed cars in Europe, Belgium, Canada and USA, Buy second handed luxury cars in Europe, Belgium, Canada and USA, Buy second handed cars in Europe, Belgium, Canada and USA and ship to Africa, Buy second handed cars in Europe, Belgium, Canada and USA ship to Nigeria, car sourcing belgium, vehicle sourcing europe, international car sourcing, car import export services, source a car on request, custom vehicle request, auction car sourcing europe / usa / japan, cars for sale belgium, luxury cars for sale, mercedes-benz gle 350 amg for sale, mercedes ml350 import, toyota highlander usa canada import, lexus rx350 japan usa, curated performance cars, car sourcing europe to nigeria, belgium car dealer export, usa to europe car shipping, japan to belgium car sourcing">
 
+        @if(config('services.google.site_verification'))
+            <meta name="google-site-verification" content="{{ config('services.google.site_verification') }}">
+        @endif
+        @if(config('services.bing.site_verification'))
+            <meta name="msvalidate.01" content="{{ config('services.bing.site_verification') }}">
+        @endif
+
         <link rel="canonical" href="{{ url()->current() }}">
 
         <meta property="og:site_name" content="Eazy's Cars">
