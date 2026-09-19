@@ -36,7 +36,7 @@ return [
     ],
 
     'google' => [
-        'site_verification' => env('GOOGLE_SITE_VERIFICATION'),
+        'site_verification' => env('GOOGLE_SITE_VERIFICATION', 'muTvYZhxpi-LlfyGokwiaYeL9uFfG4yGIg5Cu0dyZns'),
     ],
 
     'bing' => [
