@@ -45,7 +45,13 @@ class InquiryController extends Controller
         $validated['type'] = $validated['type'] ?? 'sourcing';
         $validated['status'] = 'new';
 
-        Inquiry::create($validated);
+        try {
+            Inquiry::create($validated);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return back()->with('error', 'We could not save your request due to a database connection error. Please contact us directly on WhatsApp at +32 497 91 10 05.');
+        }
 
         return back()->with('success', 'Your vehicle request has been received. We will contact you shortly!');
     }

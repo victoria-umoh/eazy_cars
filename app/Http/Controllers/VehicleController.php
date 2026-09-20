@@ -16,9 +16,14 @@ class VehicleController extends Controller
      */
     public function index(): Response
     {
-        $vehicles = Vehicle::query()
-            ->orderBy('created_at', 'asc')
-            ->get();
+        try {
+            $vehicles = Vehicle::query()
+                ->orderBy('created_at', 'asc')
+                ->get();
+        } catch (\Throwable $e) {
+            report($e);
+            $vehicles = [];
+        }
 
         return Inertia::render('inventory', [
             'vehicles' => $vehicles,

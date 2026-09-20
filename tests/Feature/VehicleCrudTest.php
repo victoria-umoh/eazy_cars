@@ -31,6 +31,17 @@ class VehicleCrudTest extends TestCase
         );
     }
 
+    public function test_public_can_view_cars_for_sale_when_database_has_no_records(): void
+    {
+        $response = $this->get('/cars-for-sale');
+
+        $response->assertStatus(200);
+        $response->assertInertia(fn ($page) => $page
+            ->component('inventory')
+            ->has('vehicles', 0)
+        );
+    }
+
     public function test_guest_cannot_access_admin_inventory_or_mutate_vehicles(): void
     {
         $response = $this->get('/dashboard/inventory');
