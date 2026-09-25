@@ -39,7 +39,7 @@
             '@'.'type' => 'AutoDealer',
             'name' => "Eazy's Cars",
             'url' => 'https://eazyscars.be',
-            'logo' => 'https://eazyscars.be/favicon.svg',
+            'logo' => 'https://eazyscars.be/images/logo.png',
             'image' => asset('images/eazy-cars-hero.png'),
             'description' => 'Source cars in Europe, Belgium, Canada and USA. Buy second handed cars and luxury cars in Europe, Belgium, Canada and USA and ship to Africa and Nigeria. Premium vehicle sourcing, international auctions, and import/export.',
             'telephone' => '+32497911005',
@@ -134,9 +134,10 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png?v=2">
+        <link rel="shortcut icon" href="/favicon.ico?v=2">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 
         @fonts
 
