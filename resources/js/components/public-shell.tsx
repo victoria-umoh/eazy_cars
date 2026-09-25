@@ -23,8 +23,15 @@ export default function PublicShell({
         <div className="site-wrapper">
             <header className="site-header">
                 <div className="container nav-wrap">
-                    <Link className="logo" href="/">
-                        EAZY'S <span>CARS</span>
+                    <Link className="logo brand-logo-link" href="/">
+                        <img
+                            src="/images/logo.png"
+                            alt="Eazy's Cars"
+                            className="nav-logo-img"
+                        />
+                        <span>
+                            EAZY'S <span>CARS</span>
+                        </span>
                     </Link>
                     <button
                         className="menu-toggle"

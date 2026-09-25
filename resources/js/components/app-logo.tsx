@@ -1,9 +1,11 @@
 export default function AppLogo() {
     return (
         <>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-full bg-[#d8c4a0] text-[9px] font-black text-black">
-                EC
-            </div>
+            <img
+                src="/images/logo.png"
+                alt="Eazy's Cars"
+                className="size-8 rounded-full object-cover shadow-sm ring-1 ring-[#d8ad55]/50"
+            />
             <div className="ml-1 grid flex-1 text-left text-sm">
                 <span className="mb-0.5 truncate leading-tight font-semibold">
                     EAZY CARS
