@@ -12,6 +12,9 @@ use Inertia\Inertia;
 
 // Public Front-End Routes matching eazyscars.be & static HTML templates
 Route::inertia('/', 'welcome')->name('home');
+Route::get('storage/vehicles/{file}', [VehicleController::class, 'image'])
+    ->where('file', '[A-Za-z0-9._-]+')
+    ->name('vehicles.image');
 Route::get('inventory', [VehicleController::class, 'index'])->name('inventory');
 Route::get('cars-for-sale', [VehicleController::class, 'index'])->name('cars-for-sale');
 Route::inertia('find-your-car', 'find-your-car')->name('find-your-car');

@@ -130,4 +130,21 @@ class VehicleCrudTest extends TestCase
             'id' => $vehicle->id,
         ]);
     }
+
+    public function test_uploaded_vehicle_image_is_served_through_fallback_route(): void
+    {
+        Storage::fake('public');
+        Storage::disk('public')->put('vehicles/sample.jpg', 'image-bytes');
+
+        $response = $this->get('/storage/vehicles/sample.jpg');
+
+        $response->assertOk();
+    }
+
+    public function test_missing_vehicle_image_returns_not_found(): void
+    {
+        Storage::fake('public');
+
+        $this->get('/storage/vehicles/missing.jpg')->assertNotFound();
+    }
 }

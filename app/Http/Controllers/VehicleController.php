@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class VehicleController extends Controller
 {
@@ -28,6 +29,18 @@ class VehicleController extends Controller
         return Inertia::render('inventory', [
             'vehicles' => $vehicles,
         ]);
+    }
+
+    /**
+     * Serve an uploaded vehicle image when the public/storage symlink is unavailable.
+     */
+    public function image(string $file): StreamedResponse
+    {
+        $path = 'vehicles/'.$file;
+
+        abort_unless(Storage::disk('public')->exists($path), 404);
+
+        return Storage::disk('public')->response($path);
     }
 
     /**
