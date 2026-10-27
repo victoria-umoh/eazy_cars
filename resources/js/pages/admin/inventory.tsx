@@ -47,6 +47,7 @@ export default function AdminInventory({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingVehicle, setEditingVehicle] = useState<VehicleRecord | null>(null);
     const [processing, setProcessing] = useState(false);
+    const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
     // Form state
     const [brand, setBrand] = useState('');
@@ -97,6 +98,7 @@ export default function AdminInventory({
     };
 
     const closeModal = () => {
+        setFormErrors({});
         setIsModalOpen(false);
         setEditingVehicle(null);
         setImageFile(null);
@@ -114,6 +116,7 @@ export default function AdminInventory({
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setProcessing(true);
+        setFormErrors({});
 
         const formData = new FormData();
         formData.append('brand', brand);
@@ -133,19 +136,29 @@ export default function AdminInventory({
 
         if (editingVehicle) {
             router.post(`/dashboard/inventory/${editingVehicle.id}`, formData, {
+                forceFormData: true,
                 onSuccess: () => {
                     setProcessing(false);
                     closeModal();
                 },
-                onError: () => setProcessing(false),
+                onError: (errors) => {
+                    setProcessing(false);
+                    setFormErrors(errors as Record<string, string>);
+                },
+                onFinish: () => setProcessing(false),
             });
         } else {
             router.post('/dashboard/inventory', formData, {
+                forceFormData: true,
                 onSuccess: () => {
                     setProcessing(false);
                     closeModal();
                 },
-                onError: () => setProcessing(false),
+                onError: (errors: Record<string, string>) => {
+                    setProcessing(false);
+                    setFormErrors(errors);
+                },
+                onFinish: () => setProcessing(false),
             });
         }
     };
@@ -362,6 +375,13 @@ export default function AdminInventory({
                             </div>
 
                             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                                {Object.keys(formErrors).length > 0 && (
+                                    <div className="rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-700">
+                                        {Object.values(formErrors).map((msg, i) => (
+                                            <p key={i}>{msg}</p>
+                                        ))}
+                                    </div>
+                                )}
                                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                     <div>
                                         <label className="block text-xs font-bold text-black/70 uppercase">
